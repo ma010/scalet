@@ -1,0 +1,17 @@
+def rows (k: Int) {
+  val allRows = Array[Array[Int]]()
+  for (line <- 1 until k) {
+    allRows :+ Array.fill(k)(1)
+    for (num <- 1 until (k-2) if (k > 2)){
+      allRows(k-1)(num) = allRows(k-2)(num-1) + allRows(k-2)(num)
+      }
+  }
+  allRows
+}
+
+val pascalTri = rows(5)
+
+//for (
+//  row <- pascalTri
+//  num <- row
+//) println(num)
