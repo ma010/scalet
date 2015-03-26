@@ -1,6 +1,8 @@
 /**
  * Given numRows, generate the first numRows of Pascal's triangle.
  * For example, given numRows = 5,
+ * Run this in the command line:
+ * scala PascalTriangle.scala 5
  * Return
 [
      [1],
@@ -12,12 +14,13 @@
  */
 
 /**
- * This function takes one parameter which specifies
- * the number of rows of Pascal's triangle
+ * This function takes from the command line 
+ * one parameter which specifies
+ * the number of rows of Pascal's triangle  
  */
-def pascaltri (k: Int) {
+def pascaltri (args: Array[String]): Unit = {
   // define rows as a Range traversable: [0,k)
-  val rows = 0 until k
+  val rows = 0 until args(0).toInt
   
   /**
    * define ptri as a 2-D array filled with 1s, e.g.:
@@ -60,4 +63,4 @@ def pascaltri (k: Int) {
 }
 
 
-pascaltri(10)
+pascaltri(args)
