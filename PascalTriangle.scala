@@ -16,7 +16,7 @@
  * the number of rows of Pascal's triangle
  */
 def pascaltri (k: Int) {
-  // define rows as a Range traversable
+  // define rows as a Range traversable: [0,k)
   val rows = 0 until k
   
   /**
