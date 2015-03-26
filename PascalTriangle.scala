@@ -16,11 +16,11 @@
  * the number of rows of Pascal's triangle
  */
 def pascaltri (k: Int) {
-  // rows is a Range traversable
+  // define rows as a Range traversable
   val rows = 0 until k
   
   /**
-   * ptri is a two dimensional array filled with 1, e.g.:
+   * define ptri as a 2-D array filled with 1s, e.g.:
      [1]
     [1,1]
    [1,1,1]
