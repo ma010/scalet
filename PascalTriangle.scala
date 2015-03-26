@@ -14,9 +14,9 @@
  */
 
 /**
- * This function takes from the command line 
- * one parameter which specifies
- * the number of rows of Pascal's triangle  
+ * This function takes a commandline 
+ * arg which specifies the number of 
+ * rows of Pascal's triangle  
  */
 def pascaltri (args: Array[String]): Unit = {
   // define rows as a Range traversable: [0,k)
