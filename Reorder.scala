@@ -14,7 +14,6 @@
  * Double colons (::) means "construct", 
  * pronounced as "cons".
  */
- */
 
 def reorder (xs: List[Int]): List[Int] = xs match {  
   case List() => List() // empty list doesn't need reordering
