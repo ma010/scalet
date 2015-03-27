@@ -20,6 +20,8 @@ def reorder (xs: List[Int]): List[Int] = xs match {
   case y :: Nil => xs // list(a) doesn't need reordering
   case y :: y1 :: Nil => xs // list(a, b) doesn't need reordering
   case y :: ys => y :: ys.last :: reorder(ys.init) // recursion
+  // ys.init traverse the list to get all elements before the last (non-Nil),
+  // so it takes more time as a list gets longer.
 }
 
 // Initialize alist with values as (1, 2, 3, 4, 5, 6, 7, 8, 9)
