@@ -3,7 +3,8 @@
  * as follows: put the last element of a list behind
  * the first, the second to the last behind the second, etc.
  * For example, a list (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) should
- * be reordered into (1, 10, 2, 9, 3, 8, 4, 7, 5, 6)
+ * be reordered into (1, 10, 2, 9, 3, 8, 4, 7, 5, 6).
+ * This algorithm has a time complexity of O(n^2) 
  */
 /*
  * According to scala List's basic structure,
