@@ -18,7 +18,8 @@
 
 /*
  * Despite its brevity, this recursive function is not space/memory efficient.
- * Each recursive call creates a new val requiring a new stack frame.
+ * Each recursive call creates a new val(?) requiring a new stack frame.
+ * (note: parameter decaration is implicitly prefixed with val)
  * It cannot be applied to lists of much more than ca. 30,000 to 50,000 elements.
  * A tail recursive implementation would make it more efficient?
  */
