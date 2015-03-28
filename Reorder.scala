@@ -16,6 +16,13 @@
  * pronounced as "cons".
  */
 
+/*
+ * Despite its brevity, this recursive function is not space/memory efficient.
+ * Each recursive call creates a new val requiring a new stack frame.
+ * It cannot be applied to lists of much more than ca. 30,000 to 50,000 elements.
+ * A tail recursive implementation would make it more efficient?
+ */
+
 def reorder (xs: List[Int]): List[Int] = xs match {  
   case List() => List() // empty list doesn't need reordering
   case y :: Nil => xs // list(a) doesn't need reordering
