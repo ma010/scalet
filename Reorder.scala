@@ -21,7 +21,9 @@
  * Each recursive call creates a new val(?) requiring a new stack frame.
  * (note: parameter decaration is implicitly prefixed with val)
  * It cannot be applied to lists of much more than ca. 30,000 to 50,000 elements.
- * A tail recursive implementation would make it more efficient?
+ * The recursive call here is not tail recursive as reorder occurs inside
+ * a :: operation (which is right associative). A tail recursive implementation
+ * would be optimized by Scala compiler and thus become more efficient.
  */
 
 def reorder (xs: List[Int]): List[Int] = xs match {  
