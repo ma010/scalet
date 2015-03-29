@@ -27,6 +27,7 @@ def reorder (xs: List[Int]): List[Int] = xs match {
 
 // Initialize alist with values as (1, 2, 3, 4, 5, 6, 7, 8, 9)
 val alist = List.range(1, 10)
+//val alist = List.tabulate(1000)(n => n+1)
 val reordered = reorder(alist)
 println(reordered.mkString("", " ", ""))
 // Output should be: 1 9 2 8 3 7 4 6 5
