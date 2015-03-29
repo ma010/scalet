@@ -16,6 +16,16 @@
  * pronounced as "cons".
  */
 
+/*
+ * Despite its brevity, this recursive function is not space/memory efficient.
+ * Each recursive call creates a new val(?) requiring a new stack frame.
+ * (note: parameter decaration is implicitly prefixed with val)
+ * It cannot be applied to lists of much more than ca. 30,000 to 50,000 elements.
+ * The recursive call here is not tail recursive as reorder occurs inside
+ * a :: operation (which is right associative). A tail recursive implementation
+ * would be optimized by Scala compiler and thus become more efficient.
+ */
+
 def reorder (xs: List[Int]): List[Int] = xs match {  
   case List() => List() // empty list doesn't need reordering
   case y :: Nil => xs // list(a) doesn't need reordering
