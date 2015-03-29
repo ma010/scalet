@@ -42,7 +42,7 @@ object PascalTriangle {
     
   def pascalFancyDisplay (pascalTriangle: Array[Array[Int]]) {
     /**
-     * display Pascal's triangle in a pyramid shape. This method's
+     * Display Pascal's triangle in a pyramid shape. This method's
      * result type is Unit which can be omitted in the definition.
      * It's excuted for its side effects.
      */
