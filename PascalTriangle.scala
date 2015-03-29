@@ -12,6 +12,8 @@
 
 object PascalTriangle {
   def pascalTriangle (s: String): Array[Array[Int]] = {
+    // require String s only contains positive digits (without minus sign)
+    require(s forall Character.isDigit)
     // define rows as a Range traversable: [0,k)
     val rows = 0 until s.toInt  
     /**
