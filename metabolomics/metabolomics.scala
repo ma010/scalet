@@ -18,22 +18,22 @@ object metabolomics extends App {
   var buf = ArrayBuffer[String]()
   for (event <- xml) {
     event match {
-      case EvElemStart(_, "page", _, _) => {
+      case EvElemStart(_, "scan", attr, _) => {
         insidePage = true
-        val tag = "<page>"
+        val tag = "<scan" + attr + ">"
         buf += tag
       }
-      case EvElemEnd(_, "page") => {
-        val tag = "</page>"
+      case EvElemEnd(_, "scan") => {
+        val tag = "</scan>"
         buf += tag
         insidePage = false
 
         writePage(buf)
         buf.clear
       }
-      case e @ EvElemStart(_, tag, _, _) => {
+      case e @ EvElemStart(_, tag, attr, _) => {
         if (insidePage) {
-          buf += ("<" + tag + ">")
+          buf += ("<" + tag + attr + ">")
         }
       }
       case e @ EvElemEnd(_, tag) => {
@@ -53,8 +53,8 @@ object metabolomics extends App {
   def writePage(buf: ArrayBuffer[String]) = {
     val s = buf.mkString
     val x = XML.loadString(s)
-    val pageId = (x \ "id")(0).child(0).toString
-    val f = new File(outputLocation, pageId + ".xml")
+    val msLevel = (x.attribute("msLevel")).toString
+    val f = new File(outputLocation, msLevel + ".xml")
     println("writing to: " + f.getAbsolutePath())
     val out = new FileOutputStream(f)
     out.write(s.getBytes())
