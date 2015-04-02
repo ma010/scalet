@@ -1,6 +1,7 @@
-"""
-  | sbt build with default scala version 2.10
-""".stripMargin
+/*
+ * sbt build with default scala version 2.10
+ */
+
 package xml
 
 import scala.io.Source
