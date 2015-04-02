@@ -1,3 +1,6 @@
+"""
+  | sbt build with default scala version 2.10
+""".stripMargin
 package xml
 
 import scala.io.Source
