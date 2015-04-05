@@ -5,7 +5,7 @@
 
 package utility
 
-import org.apache.commons.codec.binary.Base64
+import org.apache.commons.codec.binary.Base64._
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 //import org.apache.commons.codec.binary.BinaryDecoder
@@ -16,35 +16,35 @@ object Base64Util extends App {
 //  val strDecoded = Base64.decodeBase64(base64Str)
 
 //  val strDecoded = decodeString("QuCQ")
-  val strDecoded = Base64.decodeBase64("QuCQmEBojzBC4jg8")
+  val strDecoded = decodeBase64("QuCQmEBojzBC4jg8")
   val strToFloat = ByteBuffer.wrap(strDecoded, 8, 4).order(ByteOrder.BIG_ENDIAN).getFloat()
 //  val strToFloat = ByteBuffer.order(ByteBuffer.wrap(strDecoded, 8, 4)).getFloat()
   println(strDecoded.length)
 //  println(strDecoded(1))
   println(strToFloat)
-  println(Base64.isBase64("QuCQmEBojzBC4jg8"))
+  println(isBase64("QuCQmEBojzBC4jg8"))
 
-  /** Encodes the given String into a Base64 String. **/
-  def encodeString(in: String): String = encodeString(in.getBytes("UTF-8"))
-
-  /** Encodes the given ByteArray into a Base64 String. **/
-  def encodeString(in: Array[Byte]): String = new String(Base64.encodeBase64(in))
-
-  /** Encodes the given String into a Base64 ByteArray. **/
-  def encodeBinary(in: String): Array[Byte] = Base64.encodeBase64(in.getBytes("UTF-8"))
-
-  /** Encodes the given ByteArray into a Base64 ByteArray. **/
-  def encodeBinary(in: Array[Byte]): Array[Byte] = Base64.encodeBase64(in)
-
-  /** Decodes the given Base64-ByteArray into a String. **/
-  def decodeString(in: Array[Byte]): String = new String(decodeBinary(in))
-
-  /** Decodes the given Base64-String into a String. **/
-  def decodeString(in: String): String = decodeString(in.getBytes("UTF-8"))
-
-  /** Decodes the given Base64-String into a ByteArray. **/
-  def decodeBinary(in: String): Array[Byte] = decodeBinary(in.getBytes("UTF-8"))
-
-  /** Decodes the given Base64-ByteArray into a ByteArray. **/
-  def decodeBinary(in: Array[Byte]): Array[Byte] = (new Base64).decode(in)
+//  /** Encodes the given String into a Base64 String. **/
+//  def encodeString(in: String): String = encodeString(in.getBytes("UTF-8"))
+//
+//  /** Encodes the given ByteArray into a Base64 String. **/
+//  def encodeString(in: Array[Byte]): String = new String(Base64.encodeBase64(in))
+//
+//  /** Encodes the given String into a Base64 ByteArray. **/
+//  def encodeBinary(in: String): Array[Byte] = Base64.encodeBase64(in.getBytes("UTF-8"))
+//
+//  /** Encodes the given ByteArray into a Base64 ByteArray. **/
+//  def encodeBinary(in: Array[Byte]): Array[Byte] = Base64.encodeBase64(in)
+//
+//  /** Decodes the given Base64-ByteArray into a String. **/
+//  def decodeString(in: Array[Byte]): String = new String(decodeBinary(in))
+//
+//  /** Decodes the given Base64-String into a String. **/
+//  def decodeString(in: String): String = decodeString(in.getBytes("UTF-8"))
+//
+//  /** Decodes the given Base64-String into a ByteArray. **/
+//  def decodeBinary(in: String): Array[Byte] = decodeBinary(in.getBytes("UTF-8"))
+//
+//  /** Decodes the given Base64-ByteArray into a ByteArray. **/
+//  def decodeBinary(in: Array[Byte]): Array[Byte] = (new Base64).decode(in)
 }
