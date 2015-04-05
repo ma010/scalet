@@ -9,7 +9,9 @@ object Base64Util extends App {
 //  val strDecodedByteGroup = decodeBase64("QuCQmEBojzBC4jg8") grouped 4
   val strDecodedByteGroup = decodeBase64(base64Str) grouped 4
 //  val strToFloat = ByteBuffer.wrap(strDecoded).order(ByteOrder.BIG_ENDIAN).getFloat()
+  // Unpack each 4-byte array to a float with 32 precision
   val byteToFloat = strDecodedByteGroup map(x => ByteBuffer.wrap(x).order(ByteOrder.BIG_ENDIAN).getFloat())
 //  val strToFloat = ByteBuffer.order(ByteBuffer.wrap(strDecoded, 8, 4)).getFloat()
-  byteToFloat.foreach(println)
+//  byteToFloat.foreach(println)
+
 }
