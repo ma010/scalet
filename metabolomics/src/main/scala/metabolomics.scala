@@ -1,5 +1,5 @@
 /*
- * sbt build with scala version 2.11.6
+ * sbt build with default scala version 2.10
  */
 
 package xml
@@ -57,8 +57,10 @@ object metabolomics extends App {
   def writePage(buf: ArrayBuffer[String]) = {
     val s = buf.mkString
     val x = XML.loadString(s)
+    val scanNum = x.attribute("num").toList(0).toString
     val msLevel = x.attribute("msLevel").toList(0).toString
-    val f = new File(outputLocation, msLevel + ".xml")
+    //val precursorMz = (x \ "precursorMz").text
+    val f = new File(outputLocation, scanNum + "_"+ msLevel + ".xml")
     println("writing to: " + f.getAbsolutePath())
     val out = new FileOutputStream(f)
     out.write(s.getBytes())
