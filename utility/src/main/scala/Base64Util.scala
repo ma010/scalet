@@ -11,7 +11,7 @@ import scala.xml.XML
 
 object Base64Util extends App {
   val xmlFile = args(0)
-//  val outputLocation = new File(args(1))
+  val outputLocation = new File(args(1))
 
   val loadnode = XML.loadFile(xmlFile)
   val base64Str = (loadnode \ "peaks").text
@@ -27,11 +27,13 @@ object Base64Util extends App {
 
 //  val x = XML.loadString(s)
 //  val msLevel = x.attribute("msLevel").toList(0).toString
-//  val scanNum = (loadnode \@ "num").toList(0).toString
-//  val f = new File(outputLocation, scanNum + ".xml")
-//  println("writing to: " + f.getAbsolutePath())
-//  val out = new FileOutputStream(f)
-//  out.write(mzIntensity.foreach(println))
-//  out.close
-  mzIntensity.foreach(x => println(x.mkString("", ",", "")))
+  val scanNum = (loadnode \@ "num").toList(0).toString
+//  val precursorMz = (loadnode \ "precursorMz").text
+  val precursorScanNum = (loadnode \ "precursorMz" \@ "precursorScanNum")
+  val f = new File(outputLocation, precursorScanNum + "_" + scanNum + ".csv")
+  println("writing to: " + f.getAbsolutePath())
+  val out = new FileOutputStream(f)
+  // Write the (m/z, Intensity) iterator to file
+  mzIntensity.foreach(x => out.write(x.mkString("", ",", "\n").getBytes()))
+  out.close
 }
